@@ -1,0 +1,163 @@
+import ray
+import psutil
+import time
+import pandas as pd
+import gymnasium as gym
+import torch
+import threading
+import matplotlib.pyplot as plt
+import numpy as np
+from ray.rllib.algorithms.pg import PGConfig
+from ray.tune.registry import register_env
+from gymnasium.envs.classic_control.continuous_mountain_car import Continuous_MountainCarEnv
+import os
+import logging
+import warnings
+
+warnings.filterwarnings("ignore")
+os.environ["RAY_DEDUP_LOGS"] = "1"
+os.environ["RAY_LOG_TO_STDERR"] = "0"
+os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
+os.environ["PYTHONWARNINGS"] = "ignore::DeprecationWarning"
+logging.getLogger("ray").setLevel(logging.ERROR)
+
+# ----------------------------
+# Custom MountainCarContinuous environment with randomized initial state
+# ----------------------------
+class RandomizedMountainCarContinuous(Continuous_MountainCarEnv):
+    def __init__(self):
+        super().__init__()
+        self.spec = gym.envs.registration.EnvSpec("RandomizedMountainCarContinuous-v1", max_episode_steps=999)
+
+    def reset(self, *, seed=None, options=None):
+        super().reset(seed=seed)
+        position = self.np_random.uniform(low=-1.2, high=0.6)
+        velocity = self.np_random.uniform(low=-0.07, high=0.07)
+        self.state = np.array([position, velocity], dtype=np.float32)
+        return np.array(self.state, dtype=np.float32), {}
+
+# ----------------------------
+# Step 1: Training
+# ----------------------------
+ray.init(ignore_reinit_error=True)
+
+env_name = "RandomizedMountainCarContinuous-v1"
+register_env(env_name, lambda config: RandomizedMountainCarContinuous())
+
+print(f"\n[INFO] Starting PG training on {env_name} with RANDOMIZED INITIAL STATES...\n")
+
+process = psutil.Process()
+start_time = time.time()
+start_mem = process.memory_info().rss / (1024 ** 2)
+
+cpu_log = []
+mem_log = []
+training_running = True
+
+def monitor_cpu():
+    while training_running:
+        cpu_log.append(psutil.cpu_percent(interval=0.5))
+
+def monitor_mem():
+    while training_running:
+        mem_log.append(process.memory_info().rss / (1024 ** 2))
+        time.sleep(0.5)
+
+threading.Thread(target=monitor_cpu).start()
+threading.Thread(target=monitor_mem).start()
+
+config = (
+    PGConfig()
+    .environment(env=env_name, env_config={}, disable_env_checking=True)
+    .framework("torch")
+    .exploration(explore=True)
+)
+
+agent = config.build()
+
+target_reward = 100
+stable_count = 0
+max_stable = 5
+
+for i in range(300):
+    result = agent.train()
+    reward = result["episode_reward_mean"]
+    print(f"Iteration {i+1}: episode_reward_mean = {reward:.2f}")
+    if reward >= target_reward:
+        stable_count += 1
+        if stable_count >= max_stable:
+            print(f"\n[INFO] Early stopping at iteration {i+1} — reward stabilized ≥ {target_reward} for {max_stable} iterations.\n")
+            break
+    else:
+        stable_count = 0
+
+checkpoint_path = agent.save().checkpoint.path
+print(f"\n[INFO] Checkpoint saved at: {checkpoint_path}")
+
+training_running = False
+time.sleep(1)
+
+end_time = time.time()
+end_mem = process.memory_info().rss / (1024 ** 2)
+avg_cpu = sum(cpu_log) / len(cpu_log)
+peak_mem = max(mem_log) if mem_log else start_mem
+delta_mem = end_mem - start_mem
+
+print("\n[INFO] Training Complete")
+print(f"Avg Training CPU Usage: {avg_cpu:.2f}%")
+print(f"Peak Memory Usage: {peak_mem:.2f} MB")
+print(f"Final Memory Change: {abs(delta_mem):.2f} MB")
+print(f"Training Time: {end_time - start_time:.2f} seconds\n")
+
+# ----------------------------
+# Step 2: Inference
+# ----------------------------
+print(f"Running trained PG policy on {env_name} and logging state evolution...\n")
+
+env = RandomizedMountainCarContinuous()
+agent = config.build()
+agent.restore(checkpoint_path)
+
+obs, _ = env.reset()
+done = False
+t = 0
+log = []
+
+while not done and t < 999:
+    cpu = psutil.cpu_percent(interval=0.5)
+    ram = process.memory_info().rss / (1024 ** 2)
+
+    action = agent.compute_single_action(obs)
+    obs, reward, terminated, truncated, info = env.step(action)
+    done = terminated or truncated
+
+    log.append({
+        "step": t,
+        "cpu": cpu,
+        "ram": ram,
+        "position": obs[0],
+        "velocity": obs[1],
+        "reward": reward
+    })
+    t += 1
+
+df = pd.DataFrame(log)
+df.to_csv("mountaincarcontinuous_inference_PG_log.csv", index=False)
+print("Inference log saved to mountaincarcontinuous_inference_PG_log.csv\n")
+
+# ----------------------------
+# Step 3: Plot
+# ----------------------------
+plt.plot(df["step"], df["position"], label="position")
+plt.plot(df["step"], df["velocity"], label="velocity")
+plt.xlabel("Step")
+plt.ylabel("State Value")
+plt.title("State Evolution - MountainCarContinuous-v1 using PG")
+plt.legend()
+plt.grid(True)
+plt.tight_layout()
+plt.savefig("PG-MountainCarContinuous-v1.png")
+plt.show()
+print("State plot saved to PG-MountainCarContinuous-v1.png")
+
+ray.shutdown()

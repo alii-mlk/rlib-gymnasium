@@ -1,0 +1,347 @@
+(avis) ali@Mac A2C % python a2c.py
+/Users/ali/miniforge3/envs/avis/lib/python3.10/site-packages/ray/air/_internal/remote_storage.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import packaging
+2025-07-07 22:46:08,786	INFO worker.py:1528 -- Started a local Ray instance.
+
+Starting A2C training on RandomizedPendulum-v1 with RANDOMIZED INITIAL STATES...
+
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1751921169.503049 2226008 fork_posix.cc:71] Other threads are currently calling into gRPC, skipping fork() handlers
+2025-07-07 22:46:09,510	WARNING a2c.py:144 -- `train_batch_size` (32) cannot be smaller than sample_batch_size (`rollout_fragment_length` x `num_workers` x `num_envs_per_worker`) (40) when micro-batching is not set. This is to ensure that only on gradient update is applied to policy in every iteration on the entire collected batch. As a result of we do not change the policy too much before we sample again and stay on policy as much as possible. This will help the learning stability. Setting train_batch_size = 40.
+2025-07-07 22:46:09,511	INFO algorithm.py:457 -- Current log_level is WARN. For more information, set 'log_level': 'INFO' / 'DEBUG' or use the -v and -vv flags.
+(raylet) /Users/ali/miniforge3/envs/avis/lib/python3.10/site-packages/ray/air/_internal/remote_storage.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+(raylet)   from pkg_resources import packaging
+(raylet) /Users/ali/miniforge3/envs/avis/lib/python3.10/site-packages/ray/air/_internal/remote_storage.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+(raylet)   from pkg_resources import packaging
+2025-07-07 22:46:12,701	WARNING util.py:66 -- Install gputil for GPU system monitoring.
+Iteration 1: episode_reward_mean = -1191.02
+Iteration 2: episode_reward_mean = -1231.53
+Iteration 3: episode_reward_mean = -1220.65
+Iteration 4: episode_reward_mean = -1192.24
+Iteration 5: episode_reward_mean = -1213.67
+Iteration 6: episode_reward_mean = -1215.30
+Iteration 7: episode_reward_mean = -1217.52
+Iteration 8: episode_reward_mean = -1216.69
+Iteration 9: episode_reward_mean = -1223.11
+Iteration 10: episode_reward_mean = -1221.90
+Iteration 11: episode_reward_mean = -1216.70
+Iteration 12: episode_reward_mean = -1205.01
+Iteration 13: episode_reward_mean = -1251.86
+Iteration 14: episode_reward_mean = -1240.28
+Iteration 15: episode_reward_mean = -1200.80
+Iteration 16: episode_reward_mean = -1213.36
+Iteration 17: episode_reward_mean = -1247.59
+Iteration 18: episode_reward_mean = -1197.38
+Iteration 19: episode_reward_mean = -1206.27
+Iteration 20: episode_reward_mean = -1240.64
+Iteration 21: episode_reward_mean = -1211.58
+Iteration 22: episode_reward_mean = -1184.64
+Iteration 23: episode_reward_mean = -1222.23
+Iteration 24: episode_reward_mean = -1250.61
+Iteration 25: episode_reward_mean = -1201.10
+Iteration 26: episode_reward_mean = -1201.94
+Iteration 27: episode_reward_mean = -1211.02
+Iteration 28: episode_reward_mean = -1202.20
+Iteration 29: episode_reward_mean = -1234.29
+Iteration 30: episode_reward_mean = -1224.05
+Iteration 31: episode_reward_mean = -1218.02
+Iteration 32: episode_reward_mean = -1226.00
+Iteration 33: episode_reward_mean = -1225.45
+Iteration 34: episode_reward_mean = -1198.34
+Iteration 35: episode_reward_mean = -1222.79
+Iteration 36: episode_reward_mean = -1189.28
+Iteration 37: episode_reward_mean = -1242.82
+Iteration 38: episode_reward_mean = -1225.66
+Iteration 39: episode_reward_mean = -1235.46
+Iteration 40: episode_reward_mean = -1196.14
+Iteration 41: episode_reward_mean = -1208.54
+Iteration 42: episode_reward_mean = -1182.22
+Iteration 43: episode_reward_mean = -1232.49
+Iteration 44: episode_reward_mean = -1199.12
+Iteration 45: episode_reward_mean = -1196.79
+Iteration 46: episode_reward_mean = -1210.91
+Iteration 47: episode_reward_mean = -1190.77
+Iteration 48: episode_reward_mean = -1204.53
+Iteration 49: episode_reward_mean = -1238.81
+Iteration 50: episode_reward_mean = -1214.58
+Iteration 51: episode_reward_mean = -1204.09
+Iteration 52: episode_reward_mean = -1188.80
+Iteration 53: episode_reward_mean = -1173.97
+Iteration 54: episode_reward_mean = -1209.23
+Iteration 55: episode_reward_mean = -1213.48
+Iteration 56: episode_reward_mean = -1198.65
+Iteration 57: episode_reward_mean = -1235.01
+Iteration 58: episode_reward_mean = -1227.82
+Iteration 59: episode_reward_mean = -1226.57
+Iteration 60: episode_reward_mean = -1183.87
+Iteration 61: episode_reward_mean = -1199.17
+Iteration 62: episode_reward_mean = -1223.21
+Iteration 63: episode_reward_mean = -1211.00
+Iteration 64: episode_reward_mean = -1219.83
+Iteration 65: episode_reward_mean = -1224.95
+Iteration 66: episode_reward_mean = -1217.65
+Iteration 67: episode_reward_mean = -1210.25
+Iteration 68: episode_reward_mean = -1206.63
+Iteration 69: episode_reward_mean = -1209.27
+Iteration 70: episode_reward_mean = -1198.13
+Iteration 71: episode_reward_mean = -1192.72
+Iteration 72: episode_reward_mean = -1223.03
+Iteration 73: episode_reward_mean = -1199.73
+Iteration 74: episode_reward_mean = -1208.30
+Iteration 75: episode_reward_mean = -1192.77
+Iteration 76: episode_reward_mean = -1193.65
+Iteration 77: episode_reward_mean = -1206.09
+Iteration 78: episode_reward_mean = -1225.83
+Iteration 79: episode_reward_mean = -1203.34
+Iteration 80: episode_reward_mean = -1208.92
+Iteration 81: episode_reward_mean = -1217.16
+Iteration 82: episode_reward_mean = -1216.71
+Iteration 83: episode_reward_mean = -1200.87
+Iteration 84: episode_reward_mean = -1227.99
+Iteration 85: episode_reward_mean = -1199.13
+Iteration 86: episode_reward_mean = -1208.02
+Iteration 87: episode_reward_mean = -1193.67
+Iteration 88: episode_reward_mean = -1182.51
+Iteration 89: episode_reward_mean = -1209.92
+Iteration 90: episode_reward_mean = -1201.82
+Iteration 91: episode_reward_mean = -1195.96
+Iteration 92: episode_reward_mean = -1224.36
+Iteration 93: episode_reward_mean = -1196.46
+Iteration 94: episode_reward_mean = -1187.13
+Iteration 95: episode_reward_mean = -1187.25
+Iteration 96: episode_reward_mean = -1216.94
+Iteration 97: episode_reward_mean = -1203.18
+Iteration 98: episode_reward_mean = -1208.06
+Iteration 99: episode_reward_mean = -1216.90
+Iteration 100: episode_reward_mean = -1213.27
+Iteration 101: episode_reward_mean = -1185.02
+Iteration 102: episode_reward_mean = -1229.00
+Iteration 103: episode_reward_mean = -1214.94
+Iteration 104: episode_reward_mean = -1201.10
+Iteration 105: episode_reward_mean = -1208.35
+Iteration 106: episode_reward_mean = -1234.56
+Iteration 107: episode_reward_mean = -1232.51
+Iteration 108: episode_reward_mean = -1180.10
+Iteration 109: episode_reward_mean = -1209.60
+Iteration 110: episode_reward_mean = -1192.21
+Iteration 111: episode_reward_mean = -1212.46
+Iteration 112: episode_reward_mean = -1211.62
+Iteration 113: episode_reward_mean = -1212.65
+Iteration 114: episode_reward_mean = -1198.67
+Iteration 115: episode_reward_mean = -1177.69
+Iteration 116: episode_reward_mean = -1197.10
+Iteration 117: episode_reward_mean = -1211.47
+Iteration 118: episode_reward_mean = -1236.79
+Iteration 119: episode_reward_mean = -1233.81
+Iteration 120: episode_reward_mean = -1216.33
+Iteration 121: episode_reward_mean = -1195.73
+Iteration 122: episode_reward_mean = -1201.40
+Iteration 123: episode_reward_mean = -1195.03
+Iteration 124: episode_reward_mean = -1212.76
+Iteration 125: episode_reward_mean = -1231.08
+Iteration 126: episode_reward_mean = -1196.00
+Iteration 127: episode_reward_mean = -1180.61
+Iteration 128: episode_reward_mean = -1225.87
+Iteration 129: episode_reward_mean = -1216.28
+Iteration 130: episode_reward_mean = -1215.29
+Iteration 131: episode_reward_mean = -1199.96
+Iteration 132: episode_reward_mean = -1201.40
+Iteration 133: episode_reward_mean = -1209.03
+Iteration 134: episode_reward_mean = -1197.96
+Iteration 135: episode_reward_mean = -1191.58
+Iteration 136: episode_reward_mean = -1220.56
+Iteration 137: episode_reward_mean = -1247.45
+Iteration 138: episode_reward_mean = -1209.08
+Iteration 139: episode_reward_mean = -1198.60
+Iteration 140: episode_reward_mean = -1227.11
+Iteration 141: episode_reward_mean = -1214.96
+Iteration 142: episode_reward_mean = -1201.02
+Iteration 143: episode_reward_mean = -1208.29
+Iteration 144: episode_reward_mean = -1180.68
+Iteration 145: episode_reward_mean = -1240.85
+Iteration 146: episode_reward_mean = -1215.42
+Iteration 147: episode_reward_mean = -1211.22
+Iteration 148: episode_reward_mean = -1174.84
+Iteration 149: episode_reward_mean = -1195.35
+Iteration 150: episode_reward_mean = -1201.56
+Iteration 151: episode_reward_mean = -1206.62
+Iteration 152: episode_reward_mean = -1186.69
+Iteration 153: episode_reward_mean = -1239.41
+Iteration 154: episode_reward_mean = -1197.64
+Iteration 155: episode_reward_mean = -1202.53
+Iteration 156: episode_reward_mean = -1214.92
+Iteration 157: episode_reward_mean = -1213.15
+Iteration 158: episode_reward_mean = -1214.97
+Iteration 159: episode_reward_mean = -1234.77
+Iteration 160: episode_reward_mean = -1217.77
+Iteration 161: episode_reward_mean = -1216.67
+Iteration 162: episode_reward_mean = -1222.95
+Iteration 163: episode_reward_mean = -1187.34
+Iteration 164: episode_reward_mean = -1187.11
+Iteration 165: episode_reward_mean = -1235.76
+Iteration 166: episode_reward_mean = -1151.20
+Iteration 167: episode_reward_mean = -1251.58
+Iteration 168: episode_reward_mean = -1187.06
+Iteration 169: episode_reward_mean = -1216.41
+Iteration 170: episode_reward_mean = -1256.49
+Iteration 171: episode_reward_mean = -1199.61
+Iteration 172: episode_reward_mean = -1206.89
+Iteration 173: episode_reward_mean = -1189.62
+Iteration 174: episode_reward_mean = -1202.49
+Iteration 175: episode_reward_mean = -1230.24
+Iteration 176: episode_reward_mean = -1204.70
+Iteration 177: episode_reward_mean = -1223.75
+Iteration 178: episode_reward_mean = -1223.25
+Iteration 179: episode_reward_mean = -1203.64
+Iteration 180: episode_reward_mean = -1244.45
+Iteration 181: episode_reward_mean = -1236.01
+Iteration 182: episode_reward_mean = -1232.63
+Iteration 183: episode_reward_mean = -1259.77
+Iteration 184: episode_reward_mean = -1211.29
+Iteration 185: episode_reward_mean = -1229.00
+Iteration 186: episode_reward_mean = -1193.51
+Iteration 187: episode_reward_mean = -1221.97
+Iteration 188: episode_reward_mean = -1185.02
+Iteration 189: episode_reward_mean = -1245.83
+Iteration 190: episode_reward_mean = -1226.01
+Iteration 191: episode_reward_mean = -1207.11
+Iteration 192: episode_reward_mean = -1223.53
+Iteration 193: episode_reward_mean = -1182.13
+Iteration 194: episode_reward_mean = -1224.29
+Iteration 195: episode_reward_mean = -1223.98
+Iteration 196: episode_reward_mean = -1168.91
+Iteration 197: episode_reward_mean = -1233.94
+Iteration 198: episode_reward_mean = -1188.45
+Iteration 199: episode_reward_mean = -1249.03
+Iteration 200: episode_reward_mean = -1196.85
+Iteration 201: episode_reward_mean = -1229.04
+Iteration 202: episode_reward_mean = -1198.38
+Iteration 203: episode_reward_mean = -1224.02
+Iteration 204: episode_reward_mean = -1233.73
+Iteration 205: episode_reward_mean = -1244.19
+Iteration 206: episode_reward_mean = -1220.70
+Iteration 207: episode_reward_mean = -1232.38
+Iteration 208: episode_reward_mean = -1201.26
+Iteration 209: episode_reward_mean = -1231.69
+Iteration 210: episode_reward_mean = -1242.71
+Iteration 211: episode_reward_mean = -1216.61
+Iteration 212: episode_reward_mean = -1206.70
+Iteration 213: episode_reward_mean = -1223.15
+Iteration 214: episode_reward_mean = -1234.56
+Iteration 215: episode_reward_mean = -1198.67
+Iteration 216: episode_reward_mean = -1228.85
+Iteration 217: episode_reward_mean = -1218.38
+Iteration 218: episode_reward_mean = -1190.26
+Iteration 219: episode_reward_mean = -1213.99
+Iteration 220: episode_reward_mean = -1178.46
+Iteration 221: episode_reward_mean = -1221.41
+Iteration 222: episode_reward_mean = -1216.99
+Iteration 223: episode_reward_mean = -1229.51
+Iteration 224: episode_reward_mean = -1221.84
+Iteration 225: episode_reward_mean = -1192.08
+Iteration 226: episode_reward_mean = -1244.26
+Iteration 227: episode_reward_mean = -1230.97
+Iteration 228: episode_reward_mean = -1232.91
+Iteration 229: episode_reward_mean = -1214.10
+Iteration 230: episode_reward_mean = -1262.57
+Iteration 231: episode_reward_mean = -1228.84
+Iteration 232: episode_reward_mean = -1224.95
+Iteration 233: episode_reward_mean = -1251.44
+Iteration 234: episode_reward_mean = -1238.12
+Iteration 235: episode_reward_mean = -1191.29
+Iteration 236: episode_reward_mean = -1199.86
+Iteration 237: episode_reward_mean = -1204.64
+Iteration 238: episode_reward_mean = -1242.01
+Iteration 239: episode_reward_mean = -1189.14
+Iteration 240: episode_reward_mean = -1233.37
+Iteration 241: episode_reward_mean = -1208.26
+Iteration 242: episode_reward_mean = -1215.02
+Iteration 243: episode_reward_mean = -1215.05
+Iteration 244: episode_reward_mean = -1232.08
+Iteration 245: episode_reward_mean = -1170.69
+Iteration 246: episode_reward_mean = -1192.09
+Iteration 247: episode_reward_mean = -1224.57
+Iteration 248: episode_reward_mean = -1189.70
+Iteration 249: episode_reward_mean = -1242.76
+Iteration 250: episode_reward_mean = -1212.05
+Iteration 251: episode_reward_mean = -1231.16
+Iteration 252: episode_reward_mean = -1225.03
+Iteration 253: episode_reward_mean = -1233.77
+Iteration 254: episode_reward_mean = -1207.17
+Iteration 255: episode_reward_mean = -1208.83
+Iteration 256: episode_reward_mean = -1226.81
+Iteration 257: episode_reward_mean = -1198.61
+Iteration 258: episode_reward_mean = -1181.70
+Iteration 259: episode_reward_mean = -1185.86
+Iteration 260: episode_reward_mean = -1243.04
+Iteration 261: episode_reward_mean = -1193.96
+Iteration 262: episode_reward_mean = -1198.84
+Iteration 263: episode_reward_mean = -1195.93
+Iteration 264: episode_reward_mean = -1229.38
+Iteration 265: episode_reward_mean = -1216.43
+Iteration 266: episode_reward_mean = -1190.21
+Iteration 267: episode_reward_mean = -1214.54
+Iteration 268: episode_reward_mean = -1241.11
+Iteration 269: episode_reward_mean = -1201.85
+Iteration 270: episode_reward_mean = -1184.61
+Iteration 271: episode_reward_mean = -1235.45
+Iteration 272: episode_reward_mean = -1211.37
+Iteration 273: episode_reward_mean = -1231.69
+Iteration 274: episode_reward_mean = -1198.97
+Iteration 275: episode_reward_mean = -1197.83
+Iteration 276: episode_reward_mean = -1182.40
+Iteration 277: episode_reward_mean = -1223.50
+Iteration 278: episode_reward_mean = -1200.33
+Iteration 279: episode_reward_mean = -1224.79
+Iteration 280: episode_reward_mean = -1211.93
+Iteration 281: episode_reward_mean = -1224.70
+Iteration 282: episode_reward_mean = -1193.92
+Iteration 283: episode_reward_mean = -1198.89
+Iteration 284: episode_reward_mean = -1208.72
+Iteration 285: episode_reward_mean = -1215.08
+Iteration 286: episode_reward_mean = -1202.84
+Iteration 287: episode_reward_mean = -1229.57
+Iteration 288: episode_reward_mean = -1189.17
+Iteration 289: episode_reward_mean = -1191.92
+Iteration 290: episode_reward_mean = -1223.14
+Iteration 291: episode_reward_mean = -1213.45
+Iteration 292: episode_reward_mean = -1254.22
+Iteration 293: episode_reward_mean = -1187.30
+Iteration 294: episode_reward_mean = -1254.25
+Iteration 295: episode_reward_mean = -1214.41
+Iteration 296: episode_reward_mean = -1208.03
+Iteration 297: episode_reward_mean = -1245.35
+Iteration 298: episode_reward_mean = -1215.99
+Iteration 299: episode_reward_mean = -1201.00
+Iteration 300: episode_reward_mean = -1217.49
+
+Checkpoint saved at: /Users/ali/ray_results/A2C_RandomizedPendulum-v1_2025-07-07_22-46-09svz1t49w/checkpoint_000300
+
+Training Complete
+Avg Training CPU Usage: 35.27%
+Peak Memory Usage: 440.45 MB
+Final Memory Change: -17.61 MB
+Training Time: 3009.23 seconds
+
+Running trained A2C policy on RandomizedPendulum-v1 and logging state evolution...
+
+2025-07-07 23:36:18,726	WARNING a2c.py:144 -- `train_batch_size` (32) cannot be smaller than sample_batch_size (`rollout_fragment_length` x `num_workers` x `num_envs_per_worker`) (40) when micro-batching is not set. This is to ensure that only on gradient update is applied to policy in every iteration on the entire collected batch. As a result of we do not change the policy too much before we sample again and stay on policy as much as possible. This will help the learning stability. Setting train_batch_size = 40.
+(raylet) /Users/ali/miniforge3/envs/avis/lib/python3.10/site-packages/ray/air/_internal/remote_storage.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+(raylet)   from pkg_resources import packaging
+(raylet) /Users/ali/miniforge3/envs/avis/lib/python3.10/site-packages/ray/air/_internal/remote_storage.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+(raylet)   from pkg_resources import packaging
+/Users/ali/miniforge3/envs/avis/lib/python3.10/site-packages/ray/air/_internal/remote_storage.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import packaging
+
+[INFO] Running inference using saved A2C checkpoint...
+
+2025-07-08 13:14:31,355	WARNING a2c.py:144 -- `train_batch_size` (32) cannot be smaller than sample_batch_size (`rollout_fragment_length` x `num_workers` x `num_envs_per_worker`) (40) when micro-batching is not set. This is to ensure that only on gradient update is applied to policy in every iteration on the entire collected batch. As a result of we do not change the policy too much before we sample again and stay on policy as much as possible. This will help the learning stability. Setting train_batch_size = 40.
+2025-07-08 13:14:34,026	INFO worker.py:1528 -- Started a local Ray instance.
+(raylet) /Users/ali/miniforge3/envs/avis/lib/python3.10/site-packages/ray/air/_internal/remote_storage.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+(raylet)   from pkg_resources import packaging
+(raylet) /Users/ali/miniforge3/envs/avis/lib/python3.10/site-packages/ray/air/_internal/remote_storage.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+(raylet)   from pkg_resources import packaging
+2025-07-08 13:14:38,015	WARNING util.py:66 -- Install gputil for GPU system monitoring.
+2025-07-08 13:14:38,021	INFO trainable.py:766 -- Restored on 127.0.0.1 from checkpoint: A2C_RandomizedPendulum-v1_2025-07-07_22-46-09svz1t49w/checkpoint_000300
+2025-07-08 13:14:38,021	INFO trainable.py:775 -- Current state after restoring: {'_iteration': 300, '_timesteps_total': None, '_time_total': 3002.8592314720154, '_episodes_total': 46766}
+[INFO] Inference log saved as pendulum_inference_A2C_log.csv

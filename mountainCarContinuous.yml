@@ -1,0 +1,17 @@
+name: mountainCarContinuous
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+      - ray[rllib]==2.9.3
+      - gymnasium[classic-control]==0.28.1
+      - torch>=2.0.0
+      - psutil
+      - pandas
+      - matplotlib
+      - setuptools==65.5.0
+      - numpy==1.26.4
+
+      

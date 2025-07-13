@@ -1,0 +1,126 @@
+(avis) ali@Mac PPO % python ppo.py 
+/Users/ali/miniforge3/envs/avis/lib/python3.10/site-packages/ray/air/_internal/remote_storage.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import packaging
+2025-07-07 14:54:47,630	INFO worker.py:1528 -- Started a local Ray instance.
+
+Starting PPO training on RandomizedCartPole-v1 with RANDOMIZED INITIAL STATES...
+
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1751892888.331548 2007268 fork_posix.cc:71] Other threads are currently calling into gRPC, skipping fork() handlers
+2025-07-07 14:54:48,338	INFO ppo.py:379 -- In multi-agent mode, policies will be optimized sequentially by the multi-GPU optimizer. Consider setting simple_optimizer=True if this doesn't work for you.
+2025-07-07 14:54:48,339	INFO algorithm.py:457 -- Current log_level is WARN. For more information, set 'log_level': 'INFO' / 'DEBUG' or use the -v and -vv flags.
+(raylet) /Users/ali/miniforge3/envs/avis/lib/python3.10/site-packages/ray/air/_internal/remote_storage.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+(raylet)   from pkg_resources import packaging
+(raylet) /Users/ali/miniforge3/envs/avis/lib/python3.10/site-packages/ray/air/_internal/remote_storage.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+(raylet)   from pkg_resources import packaging
+2025-07-07 14:54:51,537	WARNING util.py:66 -- Install gputil for GPU system monitoring.
+Iteration 1: episode_reward_mean = 22.97
+Iteration 2: episode_reward_mean = 42.55
+Iteration 3: episode_reward_mean = 69.20
+Iteration 4: episode_reward_mean = 100.99
+Iteration 5: episode_reward_mean = 137.37
+Iteration 6: episode_reward_mean = 169.25
+Iteration 7: episode_reward_mean = 200.99
+Iteration 8: episode_reward_mean = 237.75
+Iteration 9: episode_reward_mean = 268.22
+Iteration 10: episode_reward_mean = 296.02
+Iteration 11: episode_reward_mean = 326.26
+Iteration 12: episode_reward_mean = 356.98
+Iteration 13: episode_reward_mean = 377.34
+Iteration 14: episode_reward_mean = 380.21
+Iteration 15: episode_reward_mean = 393.21
+Iteration 16: episode_reward_mean = 402.81
+Iteration 17: episode_reward_mean = 402.45
+Iteration 18: episode_reward_mean = 401.60
+Iteration 19: episode_reward_mean = 409.69
+Iteration 20: episode_reward_mean = 419.47
+Iteration 21: episode_reward_mean = 425.22
+Iteration 22: episode_reward_mean = 431.16
+Iteration 23: episode_reward_mean = 432.98
+Iteration 24: episode_reward_mean = 439.55
+Iteration 25: episode_reward_mean = 454.38
+Iteration 26: episode_reward_mean = 474.76
+Iteration 27: episode_reward_mean = 478.71
+Iteration 28: episode_reward_mean = 466.75
+Iteration 29: episode_reward_mean = 466.85
+Iteration 30: episode_reward_mean = 466.89
+Iteration 31: episode_reward_mean = 464.01
+Iteration 32: episode_reward_mean = 459.41
+Iteration 33: episode_reward_mean = 458.13
+Iteration 34: episode_reward_mean = 445.67
+Iteration 35: episode_reward_mean = 447.27
+Iteration 36: episode_reward_mean = 447.27
+Iteration 37: episode_reward_mean = 447.27
+Iteration 38: episode_reward_mean = 447.35
+Iteration 39: episode_reward_mean = 455.09
+Iteration 40: episode_reward_mean = 462.61
+Iteration 41: episode_reward_mean = 469.56
+Iteration 42: episode_reward_mean = 469.14
+Iteration 43: episode_reward_mean = 469.61
+Iteration 44: episode_reward_mean = 477.27
+Iteration 45: episode_reward_mean = 474.44
+Iteration 46: episode_reward_mean = 484.93
+Iteration 47: episode_reward_mean = 489.48
+Iteration 48: episode_reward_mean = 489.48
+Iteration 49: episode_reward_mean = 486.79
+Iteration 50: episode_reward_mean = 486.88
+Iteration 51: episode_reward_mean = 486.88
+Iteration 52: episode_reward_mean = 480.67
+Iteration 53: episode_reward_mean = 480.67
+Iteration 54: episode_reward_mean = 481.29
+Iteration 55: episode_reward_mean = 469.03
+Iteration 56: episode_reward_mean = 459.76
+Iteration 57: episode_reward_mean = 463.37
+Iteration 58: episode_reward_mean = 460.54
+Iteration 59: episode_reward_mean = 460.54
+Iteration 60: episode_reward_mean = 463.23
+Iteration 61: episode_reward_mean = 463.23
+Iteration 62: episode_reward_mean = 464.97
+Iteration 63: episode_reward_mean = 471.18
+Iteration 64: episode_reward_mean = 471.18
+Iteration 65: episode_reward_mean = 471.18
+Iteration 66: episode_reward_mean = 473.20
+Iteration 67: episode_reward_mean = 482.44
+Iteration 68: episode_reward_mean = 490.48
+Iteration 69: episode_reward_mean = 490.45
+Iteration 70: episode_reward_mean = 493.28
+Iteration 71: episode_reward_mean = 493.28
+Iteration 72: episode_reward_mean = 493.28
+Iteration 73: episode_reward_mean = 493.28
+Iteration 74: episode_reward_mean = 493.28
+Iteration 75: episode_reward_mean = 493.28
+Iteration 76: episode_reward_mean = 493.28
+Iteration 77: episode_reward_mean = 493.28
+Iteration 78: episode_reward_mean = 493.28
+Iteration 79: episode_reward_mean = 497.29
+Iteration 80: episode_reward_mean = 498.24
+Iteration 81: episode_reward_mean = 498.24
+Iteration 82: episode_reward_mean = 500.00
+Iteration 83: episode_reward_mean = 500.00
+Iteration 84: episode_reward_mean = 500.00
+Iteration 85: episode_reward_mean = 500.00
+Iteration 86: episode_reward_mean = 500.00
+
+Early stopping at iteration 86 — reward stabilized at 500 for 5 iterations.
+
+
+Checkpoint saved at: /Users/ali/ray_results/PPO_RandomizedCartPole-v1_2025-07-07_14-54-48geu3mv1j/checkpoint_000086
+
+Training Complete
+Avg Training CPU Usage: 20.79%
+Peak Memory Usage: 428.66 MB
+Final Memory Change: 23.98 MB
+Training Time: 247.99 seconds
+
+Running trained PPO policy on RandomizedCartPole-v1 and logging state evolution...
+
+(raylet) /Users/ali/miniforge3/envs/avis/lib/python3.10/site-packages/ray/air/_internal/remote_storage.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+(raylet)   from pkg_resources import packaging
+(raylet) /Users/ali/miniforge3/envs/avis/lib/python3.10/site-packages/ray/air/_internal/remote_storage.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+(raylet)   from pkg_resources import packaging
+2025-07-07 14:58:59,904	WARNING util.py:66 -- Install gputil for GPU system monitoring.
+2025-07-07 14:58:59,911	INFO trainable.py:766 -- Restored on 127.0.0.1 from checkpoint: /Users/ali/ray_results/PPO_RandomizedCartPole-v1_2025-07-07_14-54-48geu3mv1j/checkpoint_000086
+2025-07-07 14:58:59,911	INFO trainable.py:775 -- Current state after restoring: {'_iteration': 86, '_timesteps_total': None, '_time_total': 243.46408224105835, '_episodes_total': 1021}
+Inference log saved to cartpole_inference_PPO_log.csv
+
+

@@ -1,0 +1,54 @@
+(avis) ali@Mac A2C % python a2c.py 
+/Users/ali/miniforge3/envs/avis/lib/python3.10/site-packages/ray/air/_internal/remote_storage.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import packaging
+2025-07-08 22:53:48,715	INFO worker.py:1528 -- Started a local Ray instance.
+
+[INFO] Starting A2C training on RandomizedMountainCar-v1 with RANDOMIZED INITIAL STATES...
+
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1752008029.393658 2928317 fork_posix.cc:71] Other threads are currently calling into gRPC, skipping fork() handlers
+(raylet) /Users/ali/miniforge3/envs/avis/lib/python3.10/site-packages/ray/air/_internal/remote_storage.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+(raylet)   from pkg_resources import packaging
+2025-07-08 22:53:49,404	WARNING a2c.py:144 -- `train_batch_size` (32) cannot be smaller than sample_batch_size (`rollout_fragment_length` x `num_workers` x `num_envs_per_worker`) (40) when micro-batching is not set. This is to ensure that only on gradient update is applied to policy in every iteration on the entire collected batch. As a result of we do not change the policy too much before we sample again and stay on policy as much as possible. This will help the learning stability. Setting train_batch_size = 40.
+2025-07-08 22:53:49,405	INFO algorithm.py:457 -- Current log_level is WARN. For more information, set 'log_level': 'INFO' / 'DEBUG' or use the -v and -vv flags.
+(raylet) /Users/ali/miniforge3/envs/avis/lib/python3.10/site-packages/ray/air/_internal/remote_storage.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+(raylet)   from pkg_resources import packaging
+(raylet) /Users/ali/miniforge3/envs/avis/lib/python3.10/site-packages/ray/air/_internal/remote_storage.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+(raylet)   from pkg_resources import packaging
+2025-07-08 22:53:52,609	WARNING util.py:66 -- Install gputil for GPU system monitoring.
+Iteration 1: episode_reward_mean = -157.83
+Iteration 2: episode_reward_mean = -118.53
+Iteration 3: episode_reward_mean = -94.72
+Iteration 4: episode_reward_mean = -89.14
+Iteration 5: episode_reward_mean = -91.15
+Iteration 6: episode_reward_mean = -88.67
+Iteration 7: episode_reward_mean = -89.19
+Iteration 8: episode_reward_mean = -87.69
+Iteration 9: episode_reward_mean = -86.14
+Iteration 10: episode_reward_mean = -86.17
+
+[INFO] Early stopping at iteration 10 — reward stabilized ≥ -90 for 5 iterations.
+
+
+[INFO] Checkpoint saved at: /Users/ali/ray_results/A2C_RandomizedMountainCar-v1_2025-07-08_22-53-49k3aghwas/checkpoint_000010
+
+[INFO] Training Complete
+Avg Training CPU Usage: 29.15%
+Peak Memory Usage: 440.03 MB
+Final Memory Change: 122.17 MB
+Training Time: 103.62 seconds
+
+Running trained A2C policy on RandomizedMountainCar-v1 and logging state evolution...
+
+2025-07-08 22:55:32,995	WARNING a2c.py:144 -- `train_batch_size` (32) cannot be smaller than sample_batch_size (`rollout_fragment_length` x `num_workers` x `num_envs_per_worker`) (40) when micro-batching is not set. This is to ensure that only on gradient update is applied to policy in every iteration on the entire collected batch. As a result of we do not change the policy too much before we sample again and stay on policy as much as possible. This will help the learning stability. Setting train_batch_size = 40.
+(raylet) /Users/ali/miniforge3/envs/avis/lib/python3.10/site-packages/ray/air/_internal/remote_storage.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+(raylet)   from pkg_resources import packaging
+(raylet) /Users/ali/miniforge3/envs/avis/lib/python3.10/site-packages/ray/air/_internal/remote_storage.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+(raylet)   from pkg_resources import packaging
+2025-07-08 22:55:36,297	WARNING util.py:66 -- Install gputil for GPU system monitoring.
+2025-07-08 22:55:36,302	INFO trainable.py:766 -- Restored on 127.0.0.1 from checkpoint: /Users/ali/ray_results/A2C_RandomizedMountainCar-v1_2025-07-08_22-53-49k3aghwas/checkpoint_000010
+2025-07-08 22:55:36,303	INFO trainable.py:775 -- Current state after restoring: {'_iteration': 10, '_timesteps_total': None, '_time_total': 100.07344913482666, '_episodes_total': 3638}
+Inference log saved to a2c_inference_log.csv
+
+State plot saved to A2C-MountainCar-v1.png
+(avis) ali@Mac A2C % 
